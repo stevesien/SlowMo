@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SlowMo — slow-motion minimize for macOS</title>
+<meta name="description" content="SlowMo brings back holding Shift (or any key) to minimize windows in slow motion on modern macOS. Free, tiny, menu-bar only.">
+<link rel="canonical" href="https://stevesien.github.io/SlowMo/">
+<style>
+:root {
+  color-scheme: light dark;
+  --fg: #1c1c1e;
+  --bg: #ffffff;
+  --muted: #6b6b70;
+  --rule: #e3e3e6;
+  --accent: #0b6ec9;
+  --tint: #f6f6f8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e9e9ea;
+    --bg: #141416;
+    --muted: #9d9da3;
+    --rule: #2c2c30;
+    --accent: #5aa9f0;
+    --tint: #1d1d20;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+  max-width: 46rem;
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .35rem; letter-spacing: -.02em; }
+h2 { font-size: 1.25rem; margin: 2.75rem 0 .75rem; letter-spacing: -.01em; }
+.dates { color: var(--muted); font-size: .9rem; margin: 0 0 1.5rem; }
+.lang {
+  margin: 0 0 2.5rem; padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule); font-size: .95rem;
+}
+a { color: var(--accent); }
+ul, ol { padding-left: 1.25rem; }
+li { margin: .35rem 0; }
+code {
+  background: var(--tint); padding: .12em .4em;
+  border-radius: 4px; font-size: .875em;
+}
+.callout {
+  background: var(--tint); border-left: 3px solid var(--accent);
+  padding: .9rem 1.1rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0;
+}
+footer {
+  margin-top: 3.5rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--rule); color: var(--muted); font-size: .875rem;
+}
+
+/* Download block */
+.hero {
+  display: flex; align-items: center; gap: 1.25rem;
+  background: var(--tint); border-radius: 12px;
+  padding: 1.25rem 1.4rem; margin: 0 0 1rem;
+}
+.hero .turtle { font-size: 2.6rem; line-height: 1; flex: none; }
+.hero .what { flex: 1; font-size: .95rem; color: var(--muted); }
+.hero .what strong { color: var(--fg); font-size: 1.05rem; display: block; }
+.btn {
+  display: inline-block; flex: none;
+  background: var(--accent); color: #fff; text-decoration: none;
+  font-weight: 600; padding: .65rem 1.15rem; border-radius: 9px;
+}
+.btn:hover { filter: brightness(1.08); }
+.meta { color: var(--muted); font-size: .85rem; margin: 0 0 2.5rem; }
+@media (max-width: 520px) {
+  .hero { flex-wrap: wrap; }
+  .btn { width: 100%; text-align: center; }
+}
+kbd {
+  font: inherit; font-size: .85em;
+  border: 1px solid var(--rule); border-bottom-width: 2px;
+  border-radius: 5px; padding: .05em .4em; background: var(--bg);
+}
+</style>
+</head>
+<body>
+
+<h1>SlowMo</h1>
+<p class="dates">Slow-motion minimize, back on modern macOS.</p>
+<p class="lang">Free · macOS 13 Ventura or later · Apple silicon and Intel · <a href="https://github.com/stevesien/SlowMo">Source on GitHub</a></p>
+
+<div class="hero">
+  <div class="turtle" aria-hidden="true">🐢</div>
+  <div class="what">
+    <strong>SlowMo 1.0</strong>
+    A tiny menu-bar app. Signed and notarized by Apple.
+  </div>
+  <a class="btn" href="https://github.com/stevesien/SlowMo/releases/download/v1.0/SlowMo-1.0.dmg">Download</a>
+</div>
+<p class="meta">SlowMo-1.0.dmg · 107 KB · <a href="https://github.com/stevesien/SlowMo/releases">All versions</a></p>
+
+<p>Mac OS X used to have a party trick: hold <kbd>Shift</kbd> while you minimize a window and it slowly melts into the Dock. Apple switched it off in macOS High Sierra, but the animation is still in the Dock. SlowMo switches it back on, and lets you choose which key to hold.</p>
+
+<h2>Install</h2>
+<ol>
+  <li>Download <strong>SlowMo-1.0.dmg</strong> and open it.</li>
+  <li>Drag <strong>SlowMo</strong> into <strong>Applications</strong>, then open it from there.</li>
+  <li>A tortoise appears in the menu bar. The Dock restarts once (it flickers for a second) and slow motion is on.</li>
+</ol>
+
+<h2>Use it</h2>
+<p>Hold <kbd>Shift</kbd> and click a window's yellow ● button, or press <kbd>⌘</kbd><kbd>M</kbd> while holding <kbd>Shift</kbd>. The window minimizes in slow motion. The same works for un-minimizing it from the Dock.</p>
+<p>To use a different key, click the tortoise and choose one under <strong>Hold this key while minimizing</strong>: Fn / Globe, Control, Option, Command, or any regular key you press.</p>
+
+<div class="callout">
+  <strong>Shift needs no permissions.</strong> Any other key needs <strong>Accessibility</strong> access, because SlowMo has to watch for that key and quietly hold Shift down for the Dock while you press it. macOS asks the first time; you can also turn it on in System Settings → Privacy &amp; Security → Accessibility.
+</div>
+
+<h2>Menu</h2>
+<ul>
+  <li><strong>Slow-motion minimize</strong>: turns the effect on or off (restarts the Dock).</li>
+  <li><strong>Hold this key while minimizing</strong>: Shift, Fn, Control, Option, Command, or a custom key.</li>
+  <li><strong>Open at login</strong>: start SlowMo automatically.</li>
+  <li><strong>Quit SlowMo</strong>.</li>
+</ul>
+<p>With Shift as the key, SlowMo doesn't even need to keep running once the effect is on. The Dock remembers the setting. Keep it running if you use another key.</p>
+
+<h2>Privacy</h2>
+<p>SlowMo has no network code at all. It doesn't collect, store or send anything. It changes one Dock setting (<code>com.apple.dock slow-motion-allowed</code>) and, for non-Shift keys, listens for your chosen key on this Mac only.</p>
+
+<h2>Remove it</h2>
+<ol>
+  <li>Click the tortoise and untick <strong>Slow-motion minimize</strong> to put the Dock back the way it was.</li>
+  <li>Quit SlowMo and drag it from Applications to the Trash.</li>
+  <li>If you gave it Accessibility access, remove it from that list in System Settings.</li>
+</ol>
+
+<h2>Why isn't it on the Mac App Store?</h2>
+<p>App Store apps run in Apple's sandbox, which doesn't allow changing the Dock's settings or restarting it. SlowMo can't work under those rules, so it's distributed directly. It's still signed with a Developer ID and notarized, so macOS opens it without warnings.</p>
+
+<footer>
+  SlowMo by Steve Sien · Questions: <a href="mailto:appstore@mui.co.jp">appstore@mui.co.jp</a> · <a href="https://stevesien.github.io/policies/">Other apps</a>
+</footer>
+
+</body>
+</html>
