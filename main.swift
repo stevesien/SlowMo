@@ -93,11 +93,15 @@ final class SlowMo: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.delegate = self
         statusItem.menu = menu
 
-        // First launch: switch the Dock's slow motion on, since that's why you installed this.
+        // First launch: open at login by default, so SlowMo survives a restart.
         if !UserDefaults.standard.bool(forKey: "didFirstRun") {
             UserDefaults.standard.set(true, forKey: "didFirstRun")
-            if !dockSlowMotionAllowed { setDockSlowMotion(true) }
+            try? SMAppService.mainApp.register()
         }
+
+        // Every launch: if the Dock's slow motion should be on but isn't (first run, or a
+        // macOS update/restart cleared it), switch it back on.
+        if wantSlowMotion && !dockSlowMotionAllowed { setDockSlowMotion(true) }
 
         updateTap()
     }
@@ -162,7 +166,15 @@ final class SlowMo: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     @objc private func toggleDock() {
-        setDockSlowMotion(!dockSlowMotionAllowed)
+        let on = !dockSlowMotionAllowed
+        wantSlowMotion = on
+        setDockSlowMotion(on)
+    }
+
+    /// Whether the user wants slow motion on. Defaults to true; the menu toggle changes it.
+    private var wantSlowMotion: Bool {
+        get { UserDefaults.standard.object(forKey: "wantSlowMotion") as? Bool ?? true }
+        set { UserDefaults.standard.set(newValue, forKey: "wantSlowMotion") }
     }
 
     @objc private func pickTrigger(_ sender: NSMenuItem) {
