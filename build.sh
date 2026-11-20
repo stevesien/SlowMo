@@ -17,6 +17,7 @@ mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 echo "Compiling for ${ARCH}..."
 swiftc -O -target "$ARCH-apple-macos13" -o "$APP/Contents/MacOS/SlowMo" main.swift
 cp Info.plist "$APP/Contents/Info.plist"
+if [[ -f AppIcon.icns ]]; then cp AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"; fi
 codesign --force --sign - "$APP"
 echo "Built $(pwd)/$APP"
 
