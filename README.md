@@ -2,10 +2,16 @@
 
 Brings back **hold Shift (or any key) to minimize windows in slow motion** on modern macOS.
 
-**[Download SlowMo 1.0](https://github.com/stevesien/SlowMo/releases/download/v1.0/SlowMo-1.0.dmg)** (signed and notarized), or read more at **[stevesien.github.io/SlowMo](https://stevesien.github.io/SlowMo/)**.
+**[Download SlowMo 1.0.1](https://github.com/stevesien/SlowMo/releases/download/v1.0.1/SlowMo-1.0.1.dmg)** (signed and notarized), or read more at **[stevesien.github.io/SlowMo](https://stevesien.github.io/SlowMo/)**.
 
 - macOS 13 Ventura or later, Apple silicon and Intel
 - Menu-bar only, no network code, no data collected
+
+## Keeping it running
+
+Tick **Open at login** in SlowMo's menu to keep the tortoise in your menu bar after restarts. SlowMo ticks it the first time you open it.
+
+If you'd rather not keep it running, that's fine: with Shift as your key, slow motion keeps working anyway, because the setting lives in the Dock. Open SlowMo once and forget about it. A big macOS update can reset the Dock's settings, though. If slow motion stops working after one, open SlowMo again. A key other than Shift needs SlowMo running.
 
 ## How it works
 
