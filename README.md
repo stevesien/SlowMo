@@ -15,9 +15,9 @@ Brings back **hold Shift (or any key) to minimize windows in slow motion** on mo
 ## Build from source
 
 ```sh
-./build.sh           # builds SlowMo.app for this Mac
-./build.sh install   # builds, copies to /Applications and launches
-./release.sh         # universal, Developer ID-signed, notarized .dmg
+bash build.sh           # builds SlowMo.app for this Mac
+bash build.sh install   # builds, copies to /Applications and launches
+bash release.sh         # universal, Developer ID-signed, notarized .dmg
 ```
 
 Needs the Xcode command-line tools (`xcode-select --install`). `release.sh` also needs a Developer ID Application certificate and stored `notarytool` credentials. It explains both if they're missing.
